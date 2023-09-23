@@ -2,20 +2,13 @@ package new_banking;
 
 public class Bkash extends Mobile_banking{
 
-    public Bkash(String name, String number, int pin)
+    public Bkash(String name, String number, int pin, double balance)
     {
-        super(name,number,pin);
+        super(name,number,pin, balance);
     }
 
-    public Bkash(String name, String number)        //open an account without setup pin
-    {
-        super(name,number);
-    }
-
-
-    @Override
-    public void add_money(double amount) {
-        super.add_money(amount,30000);
+    public String cashIn(double amount) {
+        return super.add_money(amount,30000);
     }
 
     public void cash_out(double amount, int pin)

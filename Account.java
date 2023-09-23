@@ -6,9 +6,10 @@ public class Account{
     private double balance=0;
 
 
-    public Account(String customer_name)        //constractor for take customer name
+    public Account(String customer_name, double amount)        //constractor for take customer name
     {
         this.customer_name=customer_name;
+        balance = amount;
     }
 
 
@@ -17,28 +18,28 @@ public class Account{
         balance += amount;
     }
 
-    public int cash_out(double amount)
+    public boolean cash_out(double amount)
     {
         if(amount<=balance)
         {
             balance -= amount;
 
-            return 1;
+            return true;
         }
         else
-            return 0;
+            return false;
 
     }
 
-    public void send_money(double amount)
+    public boolean send_money(double amount)
     {
         if(amount<=balance)
         {
             balance-=amount;
-            System.out.println("Money sent successfully ");
+            return true;
         }
         else
-            System.out.println("Money sent failed due to limited balance");
+            return false;
     }
 
 

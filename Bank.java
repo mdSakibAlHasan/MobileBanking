@@ -6,7 +6,7 @@ public class Bank extends Account{
 
     public Bank(String name, String account_number)
     {
-        super(name);
+        super(name,0.0);
         this.account_number=account_number;
     }
 
@@ -18,28 +18,24 @@ public class Bank extends Account{
 
     public void withdraw(double amount)
     {
-        int cheek=super.cash_out(amount);           //cheek there are sufficient balance or not
+        boolean cheek=super.cash_out(amount);           //cheek there are sufficient balance or not
 
-        if(cheek==1)
-            System.out.println(amount+ "taka successfully withdraw from your account");
+        if(cheek)
+            System.out.println(amount+ " taka successfully withdraw from your account");
         else
             System.out.println("Money withdraw failed due to balance short");
     }
 
-    public void send_money(double amount)
+    public void transfer(double amount)
     {
-        amount-=100;
+        boolean cheek=super.send_money(amount);
 
-        int cheek=super.cash_out(amount);
-
-        if(cheek==1)
+        if(cheek)
         {
-            amount+=100;
-            System.out.printf(amount+ "Money send successfully");
+            System.out.printf(amount+ " taka send successfully");
         }
         else
             System.out.println("Money send failed due to short balance");
     }
-
 
 }
