@@ -18,7 +18,7 @@ public class Mobile_banking extends Account{
     {
         if(amount<=maximum_add_money) {         //cheek limit
             super.add_money(amount);
-            return "SUccessfull";
+            return "Successful";
         }
         else
             return "maximum quota exceed";
@@ -57,7 +57,7 @@ public class Mobile_banking extends Account{
                 if(cheek)
                     return "Money send successfully";
                 else
-                    return "Money doesn't sent due to short limit";
+                    return "Money doesn't sent due to shortage balance";
             } else
                 return "Money send failed due to limit exceed";
         }
@@ -80,12 +80,6 @@ public class Mobile_banking extends Account{
         return number;
     }
 
-        //print details about user
-        @Override
-    public String toString()
-    {
-        return "Account details for { "+ "Name  : " +getCustomer_name() + " ,   Mobile number : " +getNumber() + " , Total balance  : " +getBalance();
-    }
 
 
         //for change pin
