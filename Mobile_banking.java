@@ -1,10 +1,11 @@
 package new_banking;
 
+import java.util.Objects;
+
 public class Mobile_banking extends Account{
     private String number;
     private  int pin;
 
-    public double total_amount;
 
     public Mobile_banking(String name, String number, int pin, double balance)
     {
@@ -100,9 +101,47 @@ public class Mobile_banking extends Account{
     }
 
 
-    public String transferToBank(double amount, int pin, String account_number){
+    public String transferToBank(double amount, int pin, String account_number, int max_transfer){
         if(pin == this.pin){
-            
+            if(amount<getBalance() && amount<max_transfer){
+                return "balance transfer complete";
+            }
+            else{
+                return "balance shortage or quota exceed";
+            }
+        }
+        else{
+            return "pin not match";
+        }
+    }
+
+    public String addMoneyFromBank(double amount, String account_number){
+        if(account_number.length() == 6){
+            return "balance add complete";
+        }
+        else{
+            return "wrong account number";
+        }
+
+    }
+
+
+    public String mobileRechrge(String mobile_number,int pin,double amount){
+        if(mobile_number.length() == 11){
+            if(pin == this.pin){
+                if(amount<getBalance() && amount>=20){
+                    return "recharge successfully done";
+                }
+                else{
+                    return "balance shortage or below amount";
+                }
+            }
+            else {
+                return "pin not match";
+            }
+        }
+        else {
+            return "phn number not valid";
         }
     }
 

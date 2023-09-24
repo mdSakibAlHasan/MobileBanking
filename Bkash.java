@@ -22,5 +22,8 @@ public class Bkash extends Mobile_banking{
         return super.send_money(amount,pin,5,30000);
     }
 
+    public String transfer(double amount, int pin, String account_number){
+       return super.transferToBank(amount,pin,account_number,30000);
+    }
 
 }
