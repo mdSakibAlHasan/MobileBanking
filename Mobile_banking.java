@@ -100,22 +100,11 @@ public class Mobile_banking extends Account{
     }
 
 
+    public String transferToBank(double amount, int pin, String account_number){
+        if(pin == this.pin){
+            
+        }
+    }
 
-    //open account without setup pin
-
-//    public Mobile_banking(String name, String number)
-//    {
-//        //super(name);
-//        this.number=number;
-//
-//        System.out.println("Welcome you opened an account successfully");
-//    }
-//                // pin set up for new customer open an account without pin
-//    public void setup_pin_new_customer( int pin)
-//    {
-//        pin=this.pin;
-//
-//        System.out.println("Pin set up successfully");
-//    }
 
 }

@@ -23,5 +23,4 @@ public class Bkash extends Mobile_banking{
     }
 
 
-    //public void pin_update()
 }
