@@ -1,7 +1,7 @@
 package new_banking.Testing;
 
-import new_banking.Bkash;
-import new_banking.BkashUser;
+import new_banking.code.Bkash;
+import new_banking.code.BkashUser;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

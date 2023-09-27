@@ -1,6 +1,4 @@
-package new_banking;
-
-import java.util.Objects;
+package new_banking.code;
 
 public class Mobile_banking extends Account{
     private String number;

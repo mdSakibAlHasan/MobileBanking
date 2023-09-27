@@ -1,4 +1,4 @@
-package new_banking;
+package new_banking.code;
 
 import java.io.*;
 import java.util.*;
@@ -7,7 +7,7 @@ public class BkashUser {
 
     // Function to write account details to a file
     public static void writeAccountDetailsToFile(String phoneNumber, double amount, int pin) {
-        try (FileWriter fileWriter = new FileWriter("accountDetails.txt", true);
+        try (FileWriter fileWriter = new FileWriter("code/accountDetails.txt", true);
              BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
              PrintWriter printWriter = new PrintWriter(bufferedWriter)) {
 
@@ -25,7 +25,7 @@ public class BkashUser {
     public static List<String> readAccountDetailsFromFile() {
         List<String> accountDetailsList = new ArrayList<>();
 
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader("accountDetails.txt"))) {
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader("code/accountDetails.txt"))) {
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 // Split the line into components and add it to the list
@@ -46,7 +46,7 @@ public class BkashUser {
         for (String details : accountDetails) {
             String[] parts = details.split(" ");
             String phoneNumber = parts[0];
-            if(phoneNumber == number){
+            if(Objects.equals(phoneNumber, number)){
                 return false;
             }
         }

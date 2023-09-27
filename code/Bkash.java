@@ -1,4 +1,4 @@
-package new_banking;
+package new_banking.code;
 
 public class Bkash extends Mobile_banking{
 

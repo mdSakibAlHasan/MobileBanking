@@ -1,32 +1,62 @@
 package new_banking.Testing;
 
-import new_banking.BkashUser;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import new_banking.code.BkashUser;
+import org.junit.jupiter.api.*;
+
+import java.io.File;
+import java.io.FileReader;
+import java.io.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CreateBkashAccountTest {
-    BkashUser bkashUser;
+    static BkashUser bkashUser;
 
-    @BeforeEach
-    public void setUp() {
+    @BeforeAll
+    public static void setUp() {
         bkashUser = new BkashUser();
-    }
-
-
-    @Test
-    @DisplayName("User exist test")
-    void testUserExistsCreateAccount(){
-        //testcase: 1
-        assertFalse(bkashUser.createBkashAccount("sakib","012345",1234));
     }
 
     @Test
     @DisplayName("Create New User")
     void testToCreateNewUser(){
         //testcase: 2
-        assertTrue(bkashUser.createBkashAccount("sakib","01707",1234));
+        assertTrue(bkashUser.createBkashAccount("sakib","001122",1234));
+    }
+
+    @Test
+    @DisplayName("User exist test")
+    void testUserExistsCreateAccount(){
+        //testcase: 1
+        assertFalse(bkashUser.createBkashAccount("sakib","001122",1234));
+    }
+
+
+    @AfterAll
+    static void deleteCreateUser(){
+        String filePath = "code/accountDetails.txt";
+        try {
+            File inputFile = new File(filePath);
+            BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+            StringBuilder content = new StringBuilder();
+            String line, tempLine=null;
+
+            while ((line = reader.readLine()) != null) {
+                //System.out.println(line+" "+tempLine);
+               // if(line.length() > 0) {
+                    if (tempLine != null) {
+                        content.append(tempLine);
+                        content.append("\n");
+                    }
+                //}
+                tempLine = line;
+            }
+            reader.close();
+            BufferedWriter writer = new BufferedWriter(new FileWriter(inputFile));
+            writer.write(content.toString());
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
