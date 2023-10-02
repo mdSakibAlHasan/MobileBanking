@@ -17,6 +17,14 @@ public class CreateBkashAccountTest {
         bkashUser = new BkashUser();
     }
 
+
+    @Test
+    @DisplayName("File is empty")
+    void testFileIsEmpty(){
+        //testcase: 1
+        assertTrue(bkashUser.createBkashAccount("sakib","01707",1234));
+    }
+
     @Test
     @DisplayName("Create New User")
     void testToCreateNewUser(){
@@ -30,6 +38,7 @@ public class CreateBkashAccountTest {
         //testcase: 1
         assertFalse(bkashUser.createBkashAccount("sakib","001122",1234));
     }
+
 
 
     @AfterAll

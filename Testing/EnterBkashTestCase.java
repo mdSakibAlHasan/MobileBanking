@@ -19,10 +19,17 @@ public class EnterBkashTestCase {
 
 
     @Test
+    @DisplayName("Not enter into bkash")
+    void testToNoDataToEnterIntoBkash(){
+        //testcase: 2
+        assertNull(bkashUser.enterBkash("017"));
+    }
+
+    @Test
     @DisplayName("User successfully enter to bkash")
     void testSuccesssfullEnterToBkash(){
         //testcase: 1
-        assertNotNull(bkashUser.enterBkash("012345"));
+        assertNotNull(bkashUser.enterBkash("01707"));
     }
 
     @Test
